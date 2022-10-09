@@ -1,0 +1,11 @@
+{
+  "mail": {
+    "host": "smtp.mailtrap.io",
+    "port": 2525,
+    "from": "Mr. Anurag Kumar<anurag.dev443@gmail.com>",
+    "auth": {
+      "user": "295dfac0db6574",
+      "pass": "1d7c08913228e5"
+    }
+  }
+}

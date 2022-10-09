@@ -1,0 +1,28 @@
+{
+  "name": "aikyam",
+  "version": "1.0.0",
+  "description": "Aikyam Website",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "prod": "node NODE_ENV=production index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Anurag Kumar",
+  "license": "ISC",
+  "dependencies": {
+    "config": "^3.3.8",
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "express-rate-limit": "^6.6.0",
+    "firebase": "^9.11.0",
+    "helmet": "^6.0.0",
+    "joi": "^17.6.2",
+    "morgan": "^1.10.0",
+    "nodemailer": "^6.8.0",
+    "xss-clean": "^0.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
