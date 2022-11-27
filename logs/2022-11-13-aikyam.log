@@ -1,0 +1,3 @@
+{"ERR_CODE":"404","level":"warn","message":"route not found","service":"Aikyam","timestamp":"2022-11-13 16:13:25"}
+{"ERR_CODE":"404","level":"warn","message":"route not found - /api/users/search","service":"Aikyam","timestamp":"2022-11-13 16:14:14"}
+{"ERR_CODE":"404","level":"warn","message":"route not found - /favicon.ico","service":"Aikyam","timestamp":"2022-11-13 16:14:14"}

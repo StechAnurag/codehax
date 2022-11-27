@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 30
+    },
+    "auditLog": "/home/arg/Documents/Projects/aikyam/logs/.270c33aa9eac704cb87f9942cea1820b3e3be746-audit.json",
+    "files": [
+        {
+            "date": 1668335617651,
+            "name": "/home/arg/Documents/Projects/aikyam/logs/2022-11-13-aikyam.log",
+            "hash": "72656c4d22f19a627f9e835a336f4fd3ed04705414f32f277f34193881931430"
+        }
+    ],
+    "hashType": "sha256"
+}

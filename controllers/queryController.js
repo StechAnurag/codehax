@@ -1,11 +1,13 @@
-const sendEmail = require('./emailController');
+// const sendEmail = require('./emailController');
+const Email = require('./Email');
 const { firebaseDB } = require('../firebase.config');
 const { addDoc, getDocs, query, collection, serverTimestamp, orderBy, limit } = require('firebase/firestore');
 const Joi = require('joi');
+const config = require('config');
+const logger = require('../utils/logger');
 
 exports.handleQuery = async (req, res, next) => {
   try {
-    return res.send('submitted');
     // 0) validate and sanitize the req.body
     const schema = Joi.object({
       from: Joi.string().min(2).max(30).required(),
@@ -18,9 +20,11 @@ exports.handleQuery = async (req, res, next) => {
         .max(15)
         .pattern(/^[0-9]+$/)
     });
+
     const queryDoc = {
       from: req.body.from,
       contactEmail: req.body.contactEmail,
+      contactNumber: req.body.contactNumber,
       subject: req.body.subject,
       type: req.body.type || 'query',
       message: req.body.message,
@@ -47,16 +51,19 @@ exports.handleQuery = async (req, res, next) => {
     res.status(201).json({ status: 'success', code: 201, message: 'Query submitted successfully!' });
 
     // 3)send email to admin in background
-    // sendEmail({
-    //   emailTo: 'sachin.limkar@aikyamss.com',
-    //   subject: 'First mail',
-    //   message: 'New query arrived'
-    // });
+    const title = `New Contact query from - ${queryDoc.from}`;
+    const mailBody = `Dear Sachin, \nYou've new aikyam query from ${queryDoc.from} with subject - ${queryDoc.subject}. The message is as follows:- \n\n${queryDoc.message} 
+    \n\nYou can contact him/her at - \nUser Email: ${queryDoc.contactEmail} \nUser Mobile: ${queryDoc.contactNumber} \n\nGreetings!
+    \nAikyam Admin`;
+
+    const email = new Email();
+    email.send(config.get('mail').to, title, mailBody);
 
     // (optional)
     // 4) update query into database as resolved
   } catch (err) {
     console.log(err);
+    logger.error(err, { ERR_CODE: 'QUERY_EMAIL_ERR' });
     next(err);
   }
 };
@@ -77,18 +84,9 @@ exports.fetchAllQueries = async (req, res, next) => {
 
     // 2) send response
     res.json({ status: 'success', code: 200, message: 'fetched successfully!', data: allQueries });
-
-    // 3)send email to admin in background
-    // sendEmail({
-    //   emailTo: 'sachin.limkar@aikyamss.com',
-    //   subject: 'First mail',
-    //   message: 'New query arrived'
-    // });
-
-    // (optional)
-    // 4) update query into database as resolved
   } catch (err) {
     console.log(err);
+    logger.error();
     next(err);
   }
 };

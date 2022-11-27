@@ -1,8 +1,19 @@
 {
+  "adminToken": "69637e7c229bfd043e3ea72d012471b47487e028",
   "mail": {
+    "service": "SendGrid",
+    "from": "Aikyam Admin <anurag.armstrong@gmail.com>",
+    "to": "anurag.dev443@gmail.com",
+    "auth": {
+      "user": "apikey",
+      "pass": "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"
+    }
+  },
+  "mailtrap": {
     "host": "smtp.mailtrap.io",
     "port": 2525,
-    "from": "Mr. Anurag Kumar<anurag.dev443@gmail.com>",
+    "from": "Mr. Anurag Kumar<anurag.armstrong@gmail.com>",
+    "to": "anurag.dev443@gmail.com",
     "auth": {
       "user": "295dfac0db6574",
       "pass": "1d7c08913228e5"

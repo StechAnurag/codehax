@@ -7,6 +7,8 @@ const xss = require('xss-clean');
 const cors = require('cors');
 const apiRouter = require('./routes/api.routes');
 require('./firebase.config');
+const logger = require('./utils/logger');
+
 const app = express();
 
 // Enable Cors
@@ -42,12 +44,14 @@ app.use('/api/v1/', apiRouter);
 
 // 404 - NOT FOUND ROUTE
 app.all('*', (req, res, next) => {
+  // logger.warn(`route not found - ${req.originalUrl}`, { ERR_CODE: '404' });
   return res.json({ status: 'failed', code: 404, message: 'Requested route not found' });
 });
 
 // GLOBAL ERROR HANDLING Middlware
 app.use((err, req, res, next) => {
   if (err) {
+    logger.error(err, { ERR_CODE: 'GLOBAL_ERR' });
     return res.json({ status: 'error', code: 500, message: 'Something went wrong' });
   }
   res.json({ status: 'success', code: 200, data: {}, message: 'Hello there!' });

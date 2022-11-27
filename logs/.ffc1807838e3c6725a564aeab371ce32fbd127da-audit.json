@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 30
+    },
+    "auditLog": "/home/arg/Documents/Projects/codehax/logs/.ffc1807838e3c6725a564aeab371ce32fbd127da-audit.json",
+    "files": [
+        {
+            "date": 1669516997784,
+            "name": "/home/arg/Documents/Projects/codehax/logs/2022-11-27-aikyam.log",
+            "hash": "56e4f68afa9f3f3fe4b921e91f931f134328a021f4c4097cdce7c65bf6b6d382"
+        }
+    ],
+    "hashType": "sha256"
+}

@@ -4,8 +4,8 @@
   "description": "Aikyam Website",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
-    "prod": "node NODE_ENV=production index.js",
+    "dev": "nodemon NODE_ENV=development index.js",
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Anurag Kumar",
@@ -20,6 +20,8 @@
     "joi": "^17.6.2",
     "morgan": "^1.10.0",
     "nodemailer": "^6.8.0",
+    "winston": "^3.8.2",
+    "winston-daily-rotate-file": "^4.7.1",
     "xss-clean": "^0.1.1"
   },
   "devDependencies": {
